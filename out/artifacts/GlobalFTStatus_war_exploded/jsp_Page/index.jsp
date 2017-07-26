@@ -56,7 +56,7 @@
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css' rel='stylesheet'/>
   <title>Global FT Platform</title>
 
-  <script src="../js/highchart.js"></script>
+  <script src="/js/highchart.js"></script>
 
 </head>
 <body style="padding-top: 60px;">
@@ -85,13 +85,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.jsp">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="form_LiveFT.jsp">FT Coverage</a></li>
+        <li><a href="FTcoverage.jsp">FT Coverage</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Information <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">Apn</a></li>
+            <li><a href="#">Operator</a></li>
+            <li><a href="#">Network</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
@@ -109,7 +109,7 @@
         <li><a href="#">EN/CN</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-             aria-expanded="false">Login<span class="caret"></span></a>
+            aria-expanded="false">Login<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -132,26 +132,66 @@
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         center: [-14.50, 40],
-        zoom: 1.2
+        zoom: 1.2,
+        attributionControl:false, //mapbox右下角的属性标签
+        logoPosition:'bottom-right',//logo position
+        scrollZoom:true //是否启用鼠标滚轮放大缩小
       });
+
+//      加载GeoJson
+      map.on('load', function () {
+
+        map.addLayer({
+          "id": "points",
+          "type": "symbol",
+          "source": {
+            "type": "geojson",
+            "data": {
+              "type": "FeatureCollection",
+              "features": [{
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-77.03238901390978, 38.913188059745586]
+                },
+                "properties": {
+                  "title": "Mapbox DC",
+                  "icon":"moment"
+                }
+              }
+              ]
+            }
+          },
+          "layout": {
+            "icon-image": "{icon}-15",
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 0.6],
+            "text-anchor": "top"
+          }
+        });
+      });
+
+
     </script>
     <%--右列--%>
     <div class="col-md-4 column" style="height: 500px">
       <%--搜索框--%>
-      <div class="row">
-        <div class="col-lg-11">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Go!</button>
-          </span>
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-      </div><!-- /.row -->
+      <%--<div class="row">--%>
+        <%--<div class="col-lg-11">--%>
+          <%--<div class="input-group">--%>
+            <%--<input type="text" class="form-control" placeholder="Search for...">--%>
+            <%--<span class="input-group-btn">--%>
+            <%--<button class="btn btn-default" type="button">Go!</button>--%>
+          <%--</span>--%>
+          <%--</div><!-- /input-group -->--%>
+        <%--</div><!-- /.col-lg-6 -->--%>
+      <%--</div><!-- /.row -->--%>
       <%--添加表格--%>
       <div class="table-responsive" style="font-size: 12px">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-hover">
           <caption>Global FT live station</caption>
+          <a href="form_LiveFT.jsp" class="btn btn-primary btn-xs active" role="button">Setting</a>
           <thead>
           <tr>
             <th>Country</th>
@@ -200,29 +240,41 @@
             <td>PikeL</td>
             <td>PikeL测试</td>
           </tr>
+          <tr>
+            <td>Shanghai</td>
+            <td>PikeL</td>
+            <td>PikeL测试</td>
+          </tr>
+          <tr>
+            <td>Shanghai</td>
+            <td>PikeL</td>
+            <td>PikeL测试</td>
+          </tr>
           </tbody>
         </table>
       </div>
       <%--分页工具--%>
-      <nav aria-label="Page navigation">
-        <ul class="pagination">
-          <li>
-            <a href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div>
+        <nav aria-label="Page navigation" >
+          <ul class="pagination pagination-sm" style="margin-top: 0px">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
   <div class="row clearfix">
@@ -256,7 +308,7 @@
     <div class="col-md-3">
       <%--添加highchart图表容器--%>
       <div id="container" style="min-width:400px;height:200px">
-        <script type="text/javascript" src="../js/highchart.js"></script>
+        <script type="text/javascript" src="../../js/highchart.js"></script>
       </div>
     </div>
   </div>

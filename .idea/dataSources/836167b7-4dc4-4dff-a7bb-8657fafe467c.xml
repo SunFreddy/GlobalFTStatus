@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - GlobalFT@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="GlobalFT">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="mysql"/>
+    <schema id="4" name="performance_schema"/>
+    <schema id="5" name="report"/>
+    <schema id="6" name="student"/>
+    <schema id="7" name="sys"/>
+    <table id="8" parent="1" name="Live_FT"/>
+    <column id="9" parent="8" name="idLive_FT">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="10" parent="8" name="Country">
+      <mandatory>1</mandatory>
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="11" parent="8" name="City">
+      <mandatory>1</mandatory>
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="12" parent="8" name="TaskName">
+      <mandatory>1</mandatory>
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <column id="13" parent="8" name="Tester">
+      <mandatory>1</mandatory>
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <column id="14" parent="8" name="Location">
+      <mandatory>1</mandatory>
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <column id="15" parent="8" name="StartTime">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="16" parent="8" name="EndTime">
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="17" parent="8" name="Project">
+      <mandatory>1</mandatory>
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="18" parent="8" name="AP Version">
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <column id="19" parent="8" name="CP Version">
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <column id="20" parent="8" name="TestProcess">
+      <data-type>float|0</data-type>
+    </column>
+    <column id="21" parent="8" name="TestPassRate">
+      <data-type>float|0</data-type>
+    </column>
+    <key id="22" parent="8" name="PRIMARY">
+      <columns>idLive_FT</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

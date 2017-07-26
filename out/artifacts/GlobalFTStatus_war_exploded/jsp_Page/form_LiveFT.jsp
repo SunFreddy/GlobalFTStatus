@@ -45,7 +45,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.jsp">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="form_LiveFT.jsp">FT Coverage</a></li>
+        <li><a href="FTcoverage.jsp">FT Coverage</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Information <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -82,21 +82,108 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div>
-  <form action="/service/user" method="post">
-    <fieldset>
-      <legend>Sign in to begin.</legend>
-      <label for="userName">User Name:</label>
-      <input type="text" id="userName" name="userName" placeholder="user" tabindex="1" required="true" />
-      <label for="password">Password:</label>
-      <input type="text" id="password"  name="password" placeholder="password" tabindex="2" required="true" />
-      <label for="staySigned">
-        <input type="checkbox" id="staySigned" name="staySigned" tabindex="3" />
-        Stay signed in
-      </label>
-    </fieldset>
-    <input type="submit" value="Login" tabindex="4" />
-  </form>
+<div class="container" style="margin-left: auto; margin-right: auto">
+  <div class="row">
+    <div class="col-xs-8 col-md-offset-2">
+      <form class="form-horizontal">
+<%--TaskName--%>
+        <div class="form-group">
+          <label for="inputTaskName" class="col-sm-2 control-label">Task Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputTaskName" placeholder="Task Name">
+          </div>
+        </div>
+  <%--Tester--%>
+  <div class="form-group">
+    <label for="inputTester" class="col-sm-2 control-label">Tester</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputTester" placeholder="Tester">
+    </div>
+  </div>
+  <%--Country--%>
+  <div class="form-group">
+    <label for="inputCountry" class="col-sm-2 control-label">Country</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputCountry" placeholder="Country">
+    </div>
+  </div>
+  <%--City--%>
+  <div class="form-group">
+    <label for="inputCity" class="col-sm-2 control-label">City</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputCity" placeholder="City">
+    </div>
+  </div>
+  <%--Location--%>
+  <div class="form-group">
+    <label for="inputLocation" class="col-sm-2 control-label">Location</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputLocation" placeholder="Location">
+    </div>
+  </div>
+<%--project--%>
+        <div class="form-group">
+          <label for="inputProject" class="col-sm-2 control-label">Project</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputProject" placeholder="Project">
+          </div>
+        </div>
+  <%--AP Version--%>
+        <div class="form-group">
+          <label for="inputAP" class="col-sm-2 control-label">AP Version</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputAP" placeholder="AP Version">
+          </div>
+        </div>
+  <%--CP Version--%>
+        <div class="form-group">
+          <label for="inputCP" class="col-sm-2 control-label">CP Version</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCP" placeholder="CP Version">
+          </div>
+        </div>
+  <%--Test Process--%>
+        <div class="form-group">
+          <label for="inputTestProcess" class="col-sm-2 control-label">Test Process</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputTestProcess" placeholder="Test Process">
+          </div>
+        </div>
+  <%--Pass Rate--%>
+        <div class="form-group">
+          <label for="inputPassRate" class="col-sm-2 control-label">Pass Rate</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputPassRate" placeholder="Pass Rate">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputProject" class="col-sm-2 control-label">Project</label>
+          <div class="col-sm-10">
+            <select class="form-control">
+              <option></option>
+              <option>SharkLs</option>
+              <option>SharkL2</option>
+              <option>Whale2</option>
+              <option>iWhale</option>
+              <option>iWhale2</option>
+              <option>Pike</option>
+              <option>PikeL</option>
+              <option>NemoG</option>
+              <option>Other</option>>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
 </div>
 
 
